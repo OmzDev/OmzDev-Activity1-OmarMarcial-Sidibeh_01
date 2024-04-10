@@ -50,7 +50,8 @@ CLOUD = pygame.image.load(os.path.join("assets/Other", "Cloud.png"))
 
 BG = pygame.image.load(os.path.join("assets/Other", "Track.png"))
 
-FONT_COLOR=(0,0,0)
+FONT_COLOR = (0, 0, 0)
+
 
 class Dinosaur:
 
@@ -211,11 +212,15 @@ def main():
             game_speed += 1
         current_time = datetime.datetime.now().hour
         with open("score.txt", "r") as f:
-            score_ints = [int(x) for x in f.read().split()]  
+            score_ints = [int(x) for x in f.read().split()]
             highscore = max(score_ints)
             if points > highscore:
-                highscore=points 
-            text = font.render("High Score: "+ str(highscore) + "  Points: " + str(points), True, FONT_COLOR)
+                highscore = points
+            text = font.render(
+                "High Score: " + str(highscore) + "  Points: " + str(points),
+                True,
+                FONT_COLOR,
+            )
         textRect = text.get_rect()
         textRect.center = (900, 40)
         SCREEN.blit(text, textRect)
@@ -241,7 +246,7 @@ def main():
         font = pygame.font.Font("freesansbold.ttf", 30)
         text = font.render("Game Paused, Press 'u' to Unpause", True, FONT_COLOR)
         textRect = text.get_rect()
-        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT  // 3)
+        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 3)
         SCREEN.blit(text, textRect)
         pygame.display.update()
 
@@ -305,10 +310,10 @@ def menu(death_count):
     while run:
         current_time = datetime.datetime.now().hour
         if 7 < current_time < 19:
-            FONT_COLOR=(0,0,0)
+            FONT_COLOR = (0, 0, 0)
             SCREEN.fill((255, 255, 255))
         else:
-            FONT_COLOR=(255,255,255)
+            FONT_COLOR = (255, 255, 255)
             SCREEN.fill((128, 128, 128))
         font = pygame.font.Font("freesansbold.ttf", 30)
 
